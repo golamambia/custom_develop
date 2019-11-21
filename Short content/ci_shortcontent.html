@@ -1,0 +1,67 @@
+name:testing_steel
+App ID
+673915543027245
+App Secret
+fef28429bf77a6317a25a6a3cc8080eb
+winsteel:
+2156748561012436
+b41457a17400ecf52254943eeeb33d77
+
+
+for google calender event add
+Client ID:223723704004-9u3n96q52ssk15mnbcmbd8j71dm26qda.apps.googleusercontent.com
+
+Client Secret:Vq2UqrYDVwRrXqT0JJ6mcQpv
+
+Client ID
+223723704004-5uk84ogp49a1kh0tvlub223v2djihdcn.apps.googleusercontent.com
+Client Secret
+Z6hET-5v-qVPL5kiXkns5ZKi
+##########################################
+for count
+$data['$num_ev5']= $this->db
+       ->where('ratting',5)
+       ->count_all_results('review_master');
+	   
+Controller:
+
+function id_cont() {
+   $news_data = new news_model();
+   $ids=$news_data->data_model();
+   print_r($ids);
+}
+Model:
+
+function data_model() {
+    $this->db->select('*');
+    $this->db->from('news_data');
+    $id = $this->db->get()->num_rows();
+    return $id;
+}
+
+########################################
+get query
+$rating = base64_decode($this->input->get('rating', TRUE));
+$product_id =$this->uri->segment(3);  
+
+
+#######################################
+Join query
+
+ $this->db->select('*');
+          $this->db->where('ratting', $rating);
+         $this->db->from('review_master');
+         $this->db->join('student_master', 'student_master.st_id = review_master.user_id');
+         $this->db->order_by('sr_no', 'DESC');
+        $query = $this->db->get();
+         return $query->result();
+
+		 
+
+#########################################		 
+public function show_data_id($table_name,$id,$fieldname,$action,$data)
+public function getAllData($table_name,$primary_key,$wheredata,$limit,$start)
+ $query= $this->General_model->show_data_id('user_table',$id,'id','update',$datalist);
+ $query= $this->General_model->RowCount('user_table');
+ $query= $this->General_model->RowCount('user_table','email',$email);
+public function record_count()

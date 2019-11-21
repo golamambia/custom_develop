@@ -1,0 +1,1184 @@
+ONLY TYPE NUMBER
+
+onkeydown="return ( event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46) )"
+					<script type="text/javascript">
+         $(document).ready(function() {
+    $('.numeric_input').keydown(function(event) {
+return ( event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46) )
+
+
+      
+    });
+});
+
+     </script>
+					
+					
+EMAIL SEND USING AJAX AND EMAIL VALIDATION	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+swal("Thank You", "Your mail has been sent!", "success");
+function checkEmail() {
+
+    var email = document.getElementById('txtEmail');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (!filter.test(email.value)) {
+    alert('Please provide a valid email address');
+    email.focus;
+    return false;
+ }
+}
+ $(document).ready(function() {
+        //alert('t');
+
+      $.get("https://api.ipdata.co?api-key=test", function(response) {
+        //alert(1);
+      document.getElementById("location").value =response.city;
+      document.getElementById("location").innerHTML =response.city;
+    }, "jsonp");
+ 
+ 
+    });
+<script type="text/javascript">
+   function myFunction() {
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+var phone = document.getElementById("phone").value;
+var message = document.getElementById("message").value;
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = 'name=' + name + '&email=' + email + '&phone=' + phone + '&message=' + message;
+if (name == '' || email == '' || phone == '' || message == '') {
+alert("Please Fill All Fields");
+$("#name").focus();
+} else {
+   $("#send").html('Please wait...');
+   $("#send").prop("disabled", true);
+// AJAX code to submit form.
+$.ajax({
+type: "POST",
+url: "sendmail.php",
+data: dataString,
+cache: false,
+success: function(html) {
+//alert(html);
+if(html=='yes'){
+   $("#name").val('');
+    $("#email").val('');
+     $("#phone").val('');
+      $("#message").val('');
+$("#feedback").html("Your message successfully send");
+$("#send").html('Send Message');
+//$("#send").prop('value', 'Send Message');
+$("#send").prop("disabled", false);
+}else{
+ $("#feedback").html("Your message not send");
+ //$("#send").prop('value', 'Send Message');
+ $("#send").html('Send Message');
+ $("#send").prop("disabled", false);  
+}
+}
+});
+}
+return false;
+}
+</script>
+
+MYSQL QUERY FOR COLOMN CHANGE AND SING VALUE FETCH
+
+ALTER TABLE `purchase_ordersl` CHANGE `company` `name_t` VARCHAR(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+ <?php echo mysql_fetch_assoc(mysql_query("select name_f FROM ".TABLE_BUYCOM." where id=$row_rec[name_t]"))['name_f']; ?>
+ $get_product = $pm->getTableDetails(DTABLE_ADS,'user_id='.$uid.' and id',$ad_id);
+ 
+MAIL SEND USING SMTP
+
+$subject = "Your Registration Has been successful";
+
+            $log='https://krishnaenterprises.biz/company/index.php';
+
+            $mail_body = '<html><body>';
+
+
+            $mail_body .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+
+            $mail_body .= "<tr style='background: #eee;'><td><strong>User Name:</strong> </td><td>" .$_POST['email']. "</td></tr>";
+
+
+           //$mail_body .= "<tr><td><strong>Username:</strong> </td><td>" . $_POST['email'] . "</td></tr>";
+
+            $mail_body .= "<tr><td><strong>Password:</strong> </td><td>" .base64_decode($pass). "</td></tr>";
+
+
+            $mail_body .= "<tr><td><strong>Login link:</strong> </td><td>" .$log. "</td></tr>";
+
+
+            $mail_body .= "</table>";
+
+            $mail_body .= "</body></html>";
+			$mail_body. = "<p>Thank you for posting with Pop Up Log.</p><p>You can find your listing here " .$log. "</p>";
+            $mail_body .= "<p>We appreciate your association. </p><p>Thanks,</p><p>Pop Up Log</p><p>PS: This is an auto generated mail, Please do not reply to this.</p>";
+
+
+
+require 'class/class.phpmailer.php';
+
+   $mail = new PHPMailer;
+
+   
+
+   $mail->IsSMTP();                                  
+
+  $mail->Host = "mail.krishnaenterprises.biz";  
+
+  $mail->SMTPAuth = true; 
+
+  $mail->Username = "send@krishnaenterprises.biz"; 
+
+  $mail->Password = "g3qzKzdt_dG7"; 
+
+  $mail->From = "send@krishnaenterprises.biz";
+
+  $mail->FromName = $_POST['name'];
+
+  $mail->AddAddress('wtm.golam@gmail.com');  
+//$mail->AddAttachment($_FILES['resume_up']['tmp_name'],$_FILES['resume_up']['name']);
+  $mail->WordWrap = 50; 
+
+  $mail->IsHTML(true);  
+
+  $mail->Subject = $subject;
+
+
+
+  $mail->Body    = $mail_body;
+
+   $mail->Send();
+
+
+FOR CAPTCH CODE 
+
+captch site key:6LeJn5gUAAAAABiT4dwa2IOAcPF63JWYY6xTL9JX
+secret key:6LeJn5gUAAAAAOyKXfLjFMS8cwWQd2
+http://acmeextension.com/integrate-google-recaptcha-with-php/
+https://stackoverflow.com/questions/27274157/new-google-recaptcha-with-checkbox-server-side-php
+site key:6LeAx5gUAAAAAFSdX4yMKnk-iSYDFuIaaXpt6Ggv
+Secretkey:6LeAx5gUAAAAAMUEcg3NPdq4Z1C_eYr2pUmXZXxc
+<div class="g-recaptcha" data-sitekey="6LeAx5gUAAAAAFSdX4yMKnk-iSYDFuIaaXpt6Ggv">
+
+
+DROPDOWN HTML WITH PHPMailer
+
+ <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Contact Person</label>
+                <div class="col-sm-5">
+                    <!-- <input type="text" class="form-control" id="con_person" placeholder="Contact Person" name="con_person" > -->
+                    <select name="con_person" id="con_person" class="form-control" required>
+
+                    <option  value="" selected>--Select--</option>
+                    <?php 
+
+                    $sql1= "SELECT * FROM ".TABLE_BUYCOM_PART." where tab_id=$id ORDER BY id";
+
+                    $res1 = $db->selectData($sql1);
+
+                    while($row_rec1 = $db->getRow($res1)){
+
+                    ?>
+
+                    <option value="<?php echo $row_rec1['id']; ?>"><?php echo $row_rec1['contact_person']; ?></option>
+
+                    <?php } ?>
+
+                </select>
+                </div>
+            </div>
+			
+			
+			NEW AJAX CODE
+			<p class="statusMsg"></p>
+<form enctype="multipart/form-data" id="fupForm" >
+</form>
+			<script>
+$(document).ready(function(e){
+    $("#fupForm").on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'submit.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function(){
+                $('.submitBtn').attr("disabled","disabled");
+                $('#fupForm').css("opacity",".5");
+            },
+            success: function(msg1){
+			var msg = msg1.trim();
+                $('.statusMsg').html('');
+                if(msg == 'ok'){
+                    $('#fupForm')[0].reset();
+                    $('.statusMsg').html('<span style="font-size:18px;color:#34A853">Form data submitted successfully.</span>');
+                }else{
+                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Some problem occurred, please try again.</span>');
+                }
+                $('#fupForm').css("opacity","");
+                $(".submitBtn").removeAttr("disabled");
+            }
+        });
+    });
+    
+    //file type validation
+    $("#file").change(function() {
+        var file = this.files[0];
+        var imagefile = file.type;
+        var match= ["image/jpeg","image/png","image/jpg"];
+		var match= ["application/msword","application/pdf","application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+        if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+            alert('Please select a valid image file (JPEG/JPG/PNG).');
+            $("#file").val('');
+            return false;
+        }
+    });
+});
+</script>
+
+CHECKBOX CHECK AND UNCHECK USING JQUERY
+
+<script type="text/javascript">
+        $(document).ready(function(){
+          //alert(1);
+    $('#events').click(function(){
+            if($(this).prop("checked") == true){
+                //alert("Checkbox is checked.");
+                $("#gifts"). prop("checked", true);
+                $("#weddings"). prop("checked", true);
+            }
+            else if($(this).prop("checked") == false){
+                //alert("Checkbox is unchecked.");
+                $("#gifts"). prop("checked", false);
+                $("#weddings"). prop("checked", false);
+            }
+    
+  });
+});
+
+      </script>
+			   https://itsolutionstuff.com/post/stripe-payment-gateway-integration-in-codeigniter-exampleexample.html
+			   
+			   
+			   PHP page name get code
+			   
+			   <?php
+    $parts = Explode('/',$_SERVER["PHP_SELF"]);
+     $p=Explode('.',$parts[count($parts) - 1]);
+     $page_name=$p[0];
+     $page_class='class="'.'current-menu-item"';
+	        
+	?>
+	<?php if($page_name=='index'){ echo $page_class;} ?>
+	
+	Payu Money test details
+	
+	Card Type: Visa
+
+Card Name: Test
+
+Card Number: 4012001037141112
+
+Expiry Date : 05/20
+
+CVV : 123
+
+Card Type: Master
+
+Card Name: Test
+
+Card Number: 5123456789012346
+
+Expiry Date : 05/20
+
+CVV : 123
+
+
+Password and confirm password
+
+<input type="password" name="password" id="password" placeholder="Enter Password (Must contain at least 8 or more characters)" pattern="[A-Za-z0-9]{8,}" title="Must contain at least 8 or more characters" onkeyup='check_pass();' required />
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Enter Confirm Password" onkeyup='check_pass();' required />
+                    <p id="pass_msg"></p>
+
+<script>
+        function check_pass() {
+            if(document.getElementById('password').value == '' || document.getElementById('confirm_password').value == ''){
+                // document.getElementById('submit').disabled = true;
+                document.getElementById('pass_msg').innerHTML = "Password and confirm password length should be minimum <b>8 characters</b>";
+                document.getElementById("pass_msg").style.paddingBottom ="30px";
+                document.getElementById("pass_msg").style.color ="red";
+            }
+            else if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+                document.getElementById('submit').disabled = false;
+                document.getElementById('pass_msg').innerHTML = "Password and Confirm Password Match";
+                document.getElementById("pass_msg").style.paddingBottom ="30px";
+                document.getElementById("pass_msg").style.color ="green";
+            
+            } else {
+                document.getElementById('submit').disabled = true;
+                document.getElementById('pass_msg').innerHTML = "Password and Confirm Password not Match";
+                document.getElementById("pass_msg").style.paddingBottom ="30px";
+                document.getElementById("pass_msg").style.color ="red";
+            }
+        }
+		
+		function validateForm() {
+        
+            var password = $("#password").val();
+            var confirmPassword = $("#repass").val();
+            if (password != confirmPassword) {
+                //alert("Passwords do not match.");
+                $("#password").focus();
+                $("#pass_alert").html("Passwords do not match.");
+                return false;
+            }
+            
+        
+    }
+	<span id="pass_alert" style="float: right;color: red;"></span>
+    </script>    
+	
+	Javascript short code onclick
+	onclick="document.getElementById('rating').value = '1';"
+	
+	PHP ROW COUNT QUERY
+	
+	$sql = "SELECT * FROM ".DTABLE_PRODUCT_TABLE." ORDER BY name asc";
+	$count=$db->countRows($sql);
+
+	INNER JOIN MYSQL QUERY
+	$sql = "SELECT * FROM order_product_details  t1
+INNER JOIN new_order t2 ON t1.order_id=t2.order_id where t1.product_id='$pid' and t2.cus_id='$uid' ";
+SELECT * FROM a 
+RIGHT JOIN b on a.id = b.id;
+
+SELECT * FROM a 
+LEFT JOIN b on a.id = b.id;
+
+SELECT * FROM a
+LEFT JOIN b ON a.id = b.id
+UNION
+SELECT * FROM a
+RIGHT JOIN b ON a.id = b.id
+
+
+PHP DATE FORMAT CHANGE
+
+<?php
+		
+		 $originalDate =$review['post_time'];
+		  $exp_date =str_replace('/', '-',$originalDate);
+		echo $newDate1 =date("F d, Y",strtotime($exp_date));
+		  
+									
+ ?>
+ 
+CAPTCH CODE
+
+<script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+<form onsubmit="return submitUserForm();">
+<script>
+function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">reCAPTCHA is mandatory.</span>';
+        return false;
+    }
+    return true;
+}
+ 
+function verifyCaptcha() {
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+ grecaptcha.reset();
+ captcha for php
+ if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response']))
+{
+code here....
+}
+</script>
+
+Php Cookies set
+
+if ($remember_me == "y"){
+
+       setcookie("cookie_member_adm1",$_SESSION['admin'],time()+2592000);
+
+              setcookie("cookie_member_admpw1",$_SESSION['ps'],time()+2592000);
+
+
+
+     }else{
+
+       setcookie ("cookie_member_adm1","", time()-3600);
+
+              setcookie ("cookie_member_admpw1","", time()-3600);
+
+
+
+     }
+	 
+	 <?=$_COOKIE['cookie_member_admpw1'];?>
+	 <?=$_COOKIE['cookie_member_adm1'];?>
+	 
+	 
+	 
+	 Div wise print code
+	 
+	 <!DOCTYPE html>
+<html>
+<body>
+
+
+<div id="printableArea">
+      <h1>Print me</h1>
+</div>
+
+<input type="button" onclick="printDiv('printableArea')" value="print a div!" />
+
+
+<p>Click the button to print the current page.</p>
+
+<button onclick="myFunction()">Print this page</button>
+
+<script>
+
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+
+
+
+function myFunction() {
+    window.print();
+}
+</script>
+
+</body>
+</html>
+	 
+HTACCESS CODE WITH CUSTOM URL
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^blog/([a-zA-Z0-9_-]+)/?$ ./blog_details.php?slug=$1 [QSA,L]
+RewriteRule ^event/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/?$ ./banner_dts.php?type=$1&location=$2&slug=$3 [QSA,L]
+RewriteRule ^complimentarylisting ./this_one.php [QSA,L]
+RewriteRule ^premiumlisting ./this_two.php [QSA,L]
+
+JAVASCRIPT DATE ADDITION
+<script>
+$(document).ready(function(){
+ var date = new Date('05/15/2019');
+//var date = new Date(tt);
+    var newdate = new Date(date);
+
+    newdate.setDate(newdate.getDate() + 17);
+    
+    var dd1 =''+(newdate.getDate());
+    var mm1 = ''+(newdate.getMonth() + 1);
+    var y = newdate.getFullYear();
+		if (mm1.length < 2) mm1 = '0' + mm1;
+    if (dd1.length < 2) dd1 = '0' + dd1;
+    var someFormattedDate = mm1 + '/' + dd1 + '/' + y;
+alert('the new date is ' + someFormattedDate);
+});
+</script>
+http://webeasystep.com/blog/view_article/paypal_payment_gateway_integration_in_codeigniter
+https://www.formget.com/codeigniter-paypal-checkout/
+	 
+	 /###########################/
+	 User mail check
+	 $("#mail").keyup(function(){
+    var mail=$("#mail").val();
+		//email_check(mail);
+		$.ajax({
+type: "POST",
+url: "get_email.php",
+data: 'val=' + mail,
+cache: false,
+success: function(html) {
+//alert(html);
+if(html>0){
+$("#malert").html('Email already exist!');
+$("#sub").prop("disabled", true);
+//return false;
+}else{
+	$("#malert").html('');
+	$("#sub").prop("disabled", false);
+	//return true;
+}
+
+}
+});
+
+  });
+  <span style="color:red" id="malert"></span>
+	 
+	 /########################/
+	 
+	 Last three digit character
+	 /###########################/
+	 $number="ggfghgh";
+	 substr($number, 0, $number < 0 ? 3 : 4);
+	 
+	 /#############################/
+	 
+	 Max id fetch from db
+	 /##############################/
+	 $rc=mysql_fetch_assoc(mysql_query("SELECT * FROM ".TABLE_BILL." WHERE id=(SELECT MAX(id) FROM ".TABLE_BILL.")"));
+     $rc_no=$rc['no']+1;
+	 /#####################/
+	Get state js
+	/####################/
+	<select name="state" id="state" class="form-control" onchange="get_state(this.value)" required>
+			function get_state(val) {
+		//alert(val);
+
+		$.ajax({
+		type: "POST",
+		url: "get_state.php",
+		data: 'val=' + val,
+		cache: false,
+		success: function(html) {
+		//alert(html);
+		   $("#city").html(html);
+
+		}
+		});
+
+		return false;
+		}
+  
+	/#################/
+	Pagination css
+	/######################/
+				<style type="text/css">
+			  .pagination>li>a, .pagination>li>span {
+				position: relative;
+				float: left;
+				padding: 6px 12px;
+				margin-left: -1px;
+				line-height: 1.42857143;
+				color: #337ab7;
+				text-decoration: none;
+				background-color: #fff;
+				border: 1px solid #ddd;
+			}
+			.pagination>li {
+				display: inline;
+			}
+			.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+				z-index: 2;
+				color: #fff;
+				cursor: default;
+				background-color: #337ab7;
+				border-color: #337ab7;
+			}
+			.pagination>li:first-child>a, .pagination>li:first-child>span {
+				margin-left: 0;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
+			}
+			.pagination>li:last-child>a, .pagination>li:last-child>span {
+				border-top-right-radius: 4px;
+				border-bottom-right-radius: 4px;
+			}
+			</style>
+	/#####################/
+	Map dynamic in php
+	/####################################/
+	<?php //$address = '1625 Hennepin Ave, Minneapolis, MN';
+                                $address =$get_details['job_location'];
+                                    echo '<iframe  width="100%" height="250" style="border:0" allowfullscreen="" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' . str_replace(",", "", str_replace(" ", "+", $address)) . '&z=14&output=embed"></iframe>';?>
+	/################################/
+	
+	Some php function 
+	/########################/
+	
+	selectData(pass here sql for run);
+	getRow(for fetching data);
+	insertSql(pass sql for insert);
+	updateSql(pass sqlfor update);
+	insertDataArray(pass table and data for insert);
+	getFormValue(pass table and search key for fetching);
+	countRows($sql);
+	updateArray($table, $request, $condition);
+		deleteData($table, $condition);
+		$pm->getTableDetails(TABLE_TASK,'task_id',$id);
+	<?php echo substr($row_rec['title'],0,30).'...';?>
+	/#######################/
+	Delete using ajax
+	/##############################/
+	<a href="javascript:void(0)" onclick="del_data('<?=$row_rec['id'];?>')" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	function del_data(val) {
+		//alert(val);
+		var uid='<?=$_SESSION['USER']['id'];?>';
+		
+        var con=confirm("Are you sure to delete?");
+        if(con==true){
+		$.ajax({
+		type: "POST",
+		url: "del_data.php",
+		data: 'val=' + val+'&uid='+uid,
+		cache: false,
+		success: function(html) {
+		//alert(html);
+		var msg=html.trim();
+		if(msg=='ok'){
+		   $("#"+val).hide();
+		   swal("Okay!", "Data deleted successfully", "success");
+		}else{
+		   swal("Sorry!", "Please try again", "error");  
+		}
+
+		}
+		});
+
+		return false;
+		}
+		}
+		php code
+		del_data.php
+		<?php
+include"configure.php";
+if(isset($_POST['val'])){
+	$deleteid=$_POST['val'];
+	$uid=$_POST['uid'];
+ $rs=$db->deleteData(TABLE_POSTJOB,"id=".$deleteid." and user_id=".$uid);
+if($rs==true){
+echo"ok";
+}else{
+echo"no";
+}
+}
+
+?>
+		
+		
+
+	/##########################/
+	all extension checking
+	
+	https://www.sitepoint.com/jquery-basic-regex-selector-examples/
+	
+	Multiple image insert using php and js validation
+	/#################################/
+	if($_FILES['image_browses']['name']!=''){
+            $filename = $_FILES['image_browses']['name'];
+            $file_tmp = $_FILES['image_browses']['tmp_name'];
+            $filetype = $_FILES['image_browses']['type'];
+            $filesize = $_FILES['image_browses']['size'];
+            
+            for($i=0; $i<=count($file_tmp); $i++){
+                if(!empty($file_tmp[$i])){
+                    $arr=getimagesize($file_tmp[$i]);
+                    $userfile_extn = end(explode(".", strtolower($filename[$i])));
+                    
+                    if(($userfile_extn =="jpeg"||$userfile_extn =="jpg" || $userfile_extn =="png" || $userfile_extn =="gif")){
+                        $tmp_name = $file_tmp[$i];
+                        $name = time()."_".$filename[$i];
+                        $name2.=$name.",";
+                        move_uploaded_file($tmp_name, HOME_ADMIN_PRODUCT_IMAGE_PATH.$name);
+                        $_POST['image_browses'] = $name2;
+                        $_POST['image_multi'] = $name;
+                        $get_last_id1 = $db->insertDataArray(DTABLE_MULTIIMG,$_POST);
+                    }
+                    else{
+                        $msg="Picture's must be .jpeg/.jpg/.png/.gif please check extension";
+                    }
+                }
+                else{
+                    $msg="Please select some images...";
+                }
+            }
+        }
+	
+	
+		$("#fileupload").change(function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = $("#dvPreview");
+            dvPreview.html("");
+            //var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            var regex =/.(jpg|jpeg|png|gif)$/i;
+            $($(this)[0].files).each(function () {
+                var file = $(this);
+                
+                //var match= ["image/jpeg","image/png","image/jpg"];
+                //var t=regex.test(file[0].name.toLowerCase());
+                //alert(t);
+                if (regex.test(file[0].name.toLowerCase())) {
+                  //if(((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("<img />");
+                        img.attr("style", "height:100px;width: 100px");
+                        img.attr("src", e.target.result);
+                        dvPreview.append(img);
+                    }
+                    reader.readAsDataURL(file[0]);
+                } else {
+                    alert(file[0].name + " is not a valid image file.");
+                    dvPreview.html("");
+                    $("#fileupload").val('');
+                    return false;
+                }
+            });
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    });
+	
+	file size checking
+	
+	
+	/##############################/
+	Language translator using javascript
+	
+	/######################/
+	
+	
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages: 'en,de,tr,ru' ,layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script type="text/javascript">
+  var cs=sessionStorage.getItem("lang");
+  
+    //alert(cs);
+    window.addEventListener('load', function() {
+    //console.log('All assets are loaded');
+    //alert(1);
+    setTimeout(function(){
+        var lang = $(".goog-te-menu-value span:first").text();
+       
+        
+        if(lang == 'English'){
+            //alert(1);
+            document.getElementById("myLang").options.selectedIndex = 0;
+        }else if(lang == 'German'){
+            //alert(1);
+            document.getElementById("myLang").options.selectedIndex = 1;
+        }else if(lang == 'Turkish'){
+            //alert(1);
+            document.getElementById("myLang").options.selectedIndex = 2;
+        }else if(lang=='Russian') {
+             //alert(2);
+            document.getElementById("myLang").options.selectedIndex = 3;
+        }
+        document.getElementById("myLang").style.display = 'block';
+    }, 1000);
+})
+    
+
+  function LangChange(){
+    //alert(1);
+    var x = document.getElementById("myLang").value;
+    sessionStorage.setItem("lang", x);
+
+    if(x=='English'){
+        //alert(2);
+        
+        var $frame = $('.goog-te-menu-frame:first');
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(English)').get(0).click();
+        return false;
+    }else if(x=='German'){
+        //alert(1);
+       
+        var $frame = $('.goog-te-menu-frame:first');
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(German)').get(0).click();
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(German)').get(0).click();
+        
+        return false;
+    }else if(x=='Turkish'){
+        //alert(1);
+       
+        var $frame = $('.goog-te-menu-frame:first');
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(Turkish)').get(0).click();
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(Turkish)').get(0).click();
+        
+        return false;
+    }
+    else if(x=='Russian'){
+        //alert(1);
+        
+        var $frame = $('.goog-te-menu-frame:first');
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(Russian)').get(0).click();
+        $frame.contents().find('.goog-te-menu2-item span.text:contains(Russian)').get(0).click();
+        
+        return false;
+    }
+
+}
+</script>
+
+<div id="google_translate_element" style="float: right; display:none;"></div>
+                <li class="language"><select id="myLang" class="form-control langue   notranslate" onchange="LangChange()" style="width: auto;display: inline-block;">
+                  <option value="English">English</option>
+                <option value="German">German</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Russian">Russian</option>
+              </select></li>
+	
+	/#######################/
+	Multiple search using multiple checkbox using ajax
+	/######################/
+	<script type="text/javascript">
+
+function getEmployeeFilterOptions(){
+var opts = [];
+$checkboxes.each(function(){
+if(this.checked){
+opts.push(this.name);
+}
+});
+ 
+return opts;
+
+}
+ 
+function updateEmployees(opts){
+  //console.log(opts);
+$.ajax({
+type: "POST",
+url: "filter_search.php",
+//dataType : 'json',
+cache: false,
+data: {filterOpts: opts},
+success: function(records){
+  console.log(records);
+//$('#employees tbody').html(makeTable(records));
+}
+});
+}
+ 
+var $checkboxes = $("input:checkbox");
+$checkboxes.on("change", function(){
+var opts = getEmployeeFilterOptions();
+updateEmployees(opts);
+//console.log(opts);
+});
+ 
+//updateEmployees();
+</script>
+	/#####################/
+	array checking in php
+	/##########/
+	<?php 
+	if (in_array($row['type_name'], $_SESSION['office_type_select'])){
+      echo "checked";}else if($office_type==$row['type_name']){ echo "checked";} 
+	  ?>
+	Remove index.php from site
+	RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+
+
+www add before domain name 
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+or 
+RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+	/####################/
+	Get category
+	/############################/
+	<script type="text/javascript">
+   function get_cat(val) {
+//alert(val);
+
+$.ajax({
+type: "POST",
+url: "get_subevent.php",
+data: 'val=' + val,
+cache: false,
+success: function(html) {
+//alert(html);
+
+   
+$("#even_subtype").html(html);
+
+
+}
+});
+
+return false;
+}
+</script>
+	/##########################/
+	if($_POST[limit_val]!=''){
+$limit_val=$_POST[limit_val];
+$_SESSION[limit_val]=$_POST[limit_val];
+}else{
+  if($_SESSION[limit_val]!=''){
+
+$limit_val=$_SESSION[limit_val];
+  }else{
+$limit_val=10;
+}
+}
+	if(isset($_GET["page"]))
+                              $page = (int)$_GET["page"];
+                              else
+                              $page = 1;
+
+                              $setLimit = $limit_val;
+                              $pageLimit = ($page * $setLimit) - $setLimit;
+                              
+                             $perPage = $limit_val;
+                            $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+                            $startAt = $perPage * ($page - 1);
+
+                                    
+                                     $sql= "SELECT * FROM ".TABLE_POSTJOB." where 1=1 and job_end>='$tod' "; 
+                                    if($cat!='' ){
+                                        $sql.=" and job_category='$cat' ";
+                                    }
+                                    if($ploc!=''){
+                                        $sql.=" and state='$ploc'";
+                                    }
+                                    if($pjt!=''){
+                                        $sql.= $pjt;
+                                    }
+                                    if( $title!='')
+                                    {
+                                      $sql.= " and title like '%".$title."%' ";
+                                    }
+                                    $sql2=$sql;
+                                    $sql.= " ORDER BY id desc limit $startAt, $perPage";
+
+                                    // echo $sql;
+                                    $count=$db->countRows($sql2);
+                                $chk=$db->countRows($sql);
+                                if($chk>0){
+                                    $res = $db->selectData($sql);
+                                    while($row_rec = $db->getRow($res)){
+									}
+                                ?>
+	/########################/
+	php query
+	$get_last_id =$db->insertDataArray(DTABLE_TESTIMONIAL,$_POST);
+   if(!empty($get_last_id)):
+    $msg_class = 'alert-success';
+    $msg = MSG_ADD_SUCCESS;
+    else:
+    $msg_class = 'alert-error';
+    $msg = MSG_ADD_FAIL;
+    endif;
+	
+	$db->updateArray(DTABLE_REGISTER,$_POST, "id=".$sid);
+	$db->updateArray(DTABLE_ENQUIRELIST,$_POST, "id=".$id." and user_id=".$sid);
+	$sql_update = "UPDATE ".TABLE_WALLET." SET dr_cr='dr' WHERE user_id='".$uid."'";
+
+    $st=$db->updateSql($sql_update);
+	
+	$sql = "UPDATE ".TABLE_USER." SET pay_status='".$field_value."', pay_check='".$field_value1."' WHERE id='".$id."'";
+    $db->updateSql($sql);
+    exit();
+	
+	$GET_USER_UPDATE = $pm->getTableDetails(DTABLE_REGISTER,'id',$sid);
+
+	
+	if(isset($deleteid) && $deleteid!=""){
+        $db->deleteData(DTABLE_PRO_STATUS,"id=".$deleteid);
+        $msg_class = 'alert-success';
+        $msg = MSG_DELETE_SUCCESS;
+    }
+	<?php if((isset($msg)) and ($msg != '')){ ?>
+                                <div class="alert <?php echo $msg_class; ?> alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <p><?php echo $msg; ?></p>
+                                </div>
+                            <?php } ?>
+	<?php 
+            $sql3 = "SELECT * FROM ".DTABLE_LOCATION." ORDER BY name asc";
+            $res3 = $db->selectData($sql3);
+            while($row_rec3 = $db->getRow($res3)){
+            ?>
+                                    <option <?php if($row_rec3['id']==$pro_location){ echo"selected";}?> value="<?php echo base64_encode($row_rec3['id']); ?>"><?php echo $row_rec3['name']; ?></option>
+                                   <?php }?>
+								   
+								   
+								   
+								   $sql= "SELECT * FROM ".TABLE_PROJECT." where 1=1 "; 
+                                    if($type!=''){
+                                         $sql.=" and pro_type='$type' ";
+                                    }
+                                    if($pro_status!=''){
+                                        $sql.=" and pro_status='$pro_status'";
+                                    }
+                                    if($pro_location!=''){
+                                         $sql.= " and pro_location='$pro_location'";
+                                    }
+                                    
+                                    $sql2=$sql;
+                                    $sql.= " ORDER BY id desc limit $startAt, $perPage";
+
+                                     //echo $sql;
+                                    $count=$db->countRows($sql2);
+                                $chk=$db->countRows($sql);
+                                if($chk>0){
+                                                            
+            $res = $db->selectData($sql);
+            while($row_rec = $db->getRow($res)){
+			
+			}}
+            ?>
+	
+	/######################/
+	Zip create in php
+	/#####################/
+	$zip = new ZipArchive();
+        $zip_amb="sardar_". time().".zip";
+        $zip_name = getcwd() . "/images/".$zip_amb;
+        if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE){       // Opening zip file to load files
+                    echo "* Sorry ZIP creation failed at this time<br/>";
+                }
+	if($_FILES['loan']['name']!=''){
+            $zip->addFromString($_FILES['loan']['name'], file_get_contents($_FILES['loan']['tmp_name']));                                
+        }else{
+$tt1 = "images/".$_POST['loan_hid'];
+    $zip->addFromString(basename($tt1),  file_get_contents($tt1));
+
+    }
+            unlink($zip_file_name);
+            $db->updateArray(DTABLE_USER_DOC,$_POST, "user_id=".$sid);
+             $msg_class = 'alert-success';
+    $msg = "Document updated successfully";
+
+       
+        $zip->close();
+		
+		/#################/
+		$address = '1625 Hennepin Ave, Minneapolis, MN';
+   
+echo '<iframe frameborder="0" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' . str_replace(",", "", str_replace(" ", "+", $address)) . '&z=14&output=embed"></iframe>';
+	
+	/###########################/
+	first date and last date print of month
+	$date = '25/05/2010';
+$date = str_replace('/', '-', $date);
+echo date('Y-m-d', strtotime($date));
+
+	$date = new DateTime('now');
+$date->modify('first day of this month');
+echo $date->format('Y-m-d');
+
+<?php
+  date_default_timezone_set('Asia/Calcutta'); 
+echo "The time is " . date("h:ia");
+?>
+	/############################/
+	<input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="js-date" class="form-control" placeholder="Date of Birth" name="dob" required="" title="Choose Your Date of Birth">
+	/#########################/
+	multiple value insert
+	 $checkbox1 = $_POST['project_update_desc'];
+            for($count=0;$count<count($checkbox1);$count++)
+        {
+            $data['project_id']=$get_last_id;
+            $data['project_update_desc']=$_POST['project_update_desc'][$count];
+            $data['project_update_date']=$_POST['project_update_date'][$count];
+           
+            
+            //$chk.=$count;
+            $get_last_id2 = $db->insertDataArray(TABLE_PROJECT_PART,$data);
+        }
+	
+	/#######################/
+	Bulk sms code
+	
+	$mobile = $_POST['mobile'];
+        $message = "Welcome to EASEKART BUSINESS PLAN. User Name: ".$_POST['name'].",
+        User ID : ".$_POST['mobile'].", Sponsor I'd : ".$_POST['sponsor_id']." Password : ".$_POST['password1'];
+        $api_username = "chiranjidas4";
+        $api_password = "nljkd5";
+        $sender = "EKTRBU";
+        $type = "TEXT";
+        $message = urlencode($message);
+      
+        $apiUrl ="https://app.indiasms.com/sendsms/bulksms.php";
+        $url =$apiUrl."?username=".$api_username."&password=".$api_password."&type=".$type."&sender=".$sender."&mobile=".$mobile."&message=".$message;
+      
+        // if( function_exists("curl_init")){
+          $ch = curl_init();
+          curl_setopt ( $ch, CURLOPT_URL, $url );
+          curl_setopt ( $ch, CURLOPT_TIMEOUT, 30 );
+          curl_setopt ( $ch, CURLOPT_CONNECTTIMEOUT, 0 );
+          curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+          curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+          $response = curl_exec ( $ch );
+          curl_close($ch);
+        // }
+	/#######################/
+	function Generate_Upline(($userid)
+	{
+		global $con;
+		$query_1 = "SELECT * FROM `user_table` WHERE `user_sponsorid` = '".$userid."'";
+		$new_id = '';
+		$i = 0;
+		for(;true;)
+		{
+			$result_1 = mysqli_query($con,$query_1);
+			$no = mysqli_num_rows($result_1);
+			if($no > 0)
+			{
+				$row_1 = mysqli_fetch_array($result_1);
+				$sponsor_id = $row_1['sponsor_id'];
+				$user_id = $row_1['id'];
+				//////////////////////////////////////////
+				if($sponsor_id != '')
+				{
+					$amount = 0;
+					if($i > 3)
+					{
+						$amount = 10;
+					}
+					else
+					{
+						$amount = 40;
+					}
+					$query_2 = "INSERT INTO `my_wallet` SET `user_id`=".$user_id.",`amount`=".$amount.",`dr_cr`='cr'";
+					mysqli_query($con,$query_2);
+					$query_1 = "SELECT * FROM `user_table` WHERE `user_sponsorid` = '".$sponsor_id."'";
+				}
+				else
+				{
+					break;
+				}
+			}
+			else
+			{
+				break;
+			}
+			$i++;
+		}
+	}
+	$userid = 'EKTR00103';
+	Generate_Upline($userid);
+	
+	######################################
